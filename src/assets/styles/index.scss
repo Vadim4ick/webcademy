@@ -1,0 +1,8 @@
+@import url("./reset.scss");
+@import url("./variables/global.scss");
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
