@@ -1,5 +1,5 @@
 const RollsPage = () => {
-  return <div>RollsPage</div>;
+  return <p>RollsPage</p>;
 };
 
 export default RollsPage;

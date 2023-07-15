@@ -1,5 +1,5 @@
 const OthersPage = () => {
-  return <div>OthersPage</div>;
+  return <p>OthersPage</p>;
 };
 
 export default OthersPage;
