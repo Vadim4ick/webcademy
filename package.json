@@ -8,11 +8,13 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server --watch --port=8000 ./src/json-server/db.json"
+    "server": "json-server --watch --port=8000 ./json-server/db.json"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.1"
   },
   "devDependencies": {
