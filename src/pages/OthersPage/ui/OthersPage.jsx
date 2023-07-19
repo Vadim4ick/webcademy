@@ -1,5 +1,6 @@
 import { CartItem } from "@/components/CartItem";
 import { ProductLayout } from "@/layouts/ProductLayout";
+import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
 import {
   getOthers,
   getOthersError,
@@ -40,7 +41,7 @@ const OthersPage = () => {
         product={el.product}
         img={el.photo}
         title={el.name}
-        ingredients={el.ingredients}
+        description={el.description}
         price={el.price}
       />
     );
@@ -49,6 +50,8 @@ const OthersPage = () => {
   return (
     <>
       <ProductLayout header={"Прочее"} item={item} />
+
+      {loading && <ProductLayoutSkeleton />}
       {!loading && <div ref={ref} />}
     </>
   );

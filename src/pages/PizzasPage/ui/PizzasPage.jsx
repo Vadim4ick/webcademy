@@ -1,5 +1,6 @@
 import { CartItem } from "@/components/CartItem";
 import { ProductLayout } from "@/layouts/ProductLayout";
+import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
 import { getPizzasLoading } from "@/redux/pizzas/selectors/pizzasSelectors";
 import { getPizzasError } from "@/redux/pizzas/selectors/pizzasSelectors";
 import { getPizzas } from "@/redux/pizzas/selectors/pizzasSelectors";
@@ -50,6 +51,7 @@ const PizzasPage = () => {
   return (
     <>
       <ProductLayout header={"Пиццы"} item={item} />
+      {loading && <ProductLayoutSkeleton />}
       {!loading && <div ref={ref} />}
     </>
   );
