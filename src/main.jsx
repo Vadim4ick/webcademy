@@ -9,6 +9,7 @@ import { routerNavigations } from "./const/router";
 import { PageLoader } from "./ui/PageLoader";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { LayoutContextProvider } from "./providers/LayoutContextProvider";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <ThemeProvider initialTheme={Theme.LIGHT}>
-      <RouterProvider router={router} />
+      <LayoutContextProvider>
+        <RouterProvider router={router} />
+      </LayoutContextProvider>
     </ThemeProvider>
   </Provider>
 );

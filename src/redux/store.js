@@ -4,6 +4,7 @@ import { rtkApi } from "@/api/rtkApi";
 import { pizzasReducer } from "./pizzas/slice/pizzasSlice";
 import { rollsReducer } from "./rolls/slice/rollsSlice";
 import { othersReducer } from "./others/slice/pizzasSlice";
+import { productReducer } from "./productItem/slice/productItemSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     pizzas: pizzasReducer,
     rolls: rollsReducer,
     others: othersReducer,
+    product: productReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
   },
 

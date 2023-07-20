@@ -14,9 +14,7 @@ const Header = () => {
     navigate("/");
   };
 
-  const { toggleTheme, theme } = useTheme();
-
-  console.log(theme);
+  const { toggleTheme } = useTheme();
 
   const toggleThemeHandler = () => {
     toggleTheme();
