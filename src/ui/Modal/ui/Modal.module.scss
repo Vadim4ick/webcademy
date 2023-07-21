@@ -81,8 +81,8 @@
   }
 }
 
-// leftModal
-.leftModal {
+// rightModal
+.rightModal {
   position: fixed;
   top: -100%;
   opacity: 0;
@@ -102,15 +102,15 @@
 
   // анимации
   &.animate {
-    animation: leftModalAnimation 0.3s ease-in-out forwards;
+    animation: rightModalAnimation 0.3s ease-in-out forwards;
   }
 
   &.closing {
-    animation: closeLeftModal 0.3s ease-in-out forwards;
+    animation: closeRightModal 0.3s ease-in-out forwards;
   }
 }
 
-@keyframes leftModalAnimation {
+@keyframes rightModalAnimation {
   from {
     opacity: 0;
     top: -100%;
@@ -121,7 +121,7 @@
   }
 }
 
-@keyframes closeLeftModal {
+@keyframes closeRightModal {
   from {
     opacity: 1;
     top: 0%;
