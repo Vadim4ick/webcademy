@@ -2,7 +2,7 @@ import { Button } from "@/ui/Button";
 import cls from "./ModalItemLayout.module.scss";
 
 const ModalItemLayout = (props) => {
-  const { params, options } = props;
+  const { params, price, options } = props;
 
   return (
     <div className={cls.body}>
@@ -14,7 +14,7 @@ const ModalItemLayout = (props) => {
         {options && options}
 
         <div className={cls.footer}>
-          <span className={cls.price}>Итого: {params.price} ₽</span>
+          <span className={cls.price}>Итого: {price} ₽</span>
 
           <Button border className={cls.button}>
             Добавить
