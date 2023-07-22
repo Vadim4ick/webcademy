@@ -1,13 +1,14 @@
 import { CartItem } from "@/components/CartItem";
 import { ProductLayout } from "@/layouts/ProductLayout";
 import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
+import { LayoutContext } from "@/providers/LayoutContextProvider";
 import {
   getRolls,
   getRollsError,
   getRollsLoading,
 } from "@/redux/rolls/selectors/rollsSelectors";
 import { fetchNextRollsPage } from "@/redux/rolls/services/fetchNextRollsPage";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -15,6 +16,8 @@ const RollsPage = () => {
   const rolls = useSelector(getRolls);
   const error = useSelector(getRollsError);
   const loading = useSelector(getRollsLoading);
+
+  const { handleClick } = useContext(LayoutContext);
 
   const { ref, inView } = useInView({
     /* Optional options */
@@ -45,6 +48,7 @@ const RollsPage = () => {
         title={el.name}
         ingredients={el.ingredients}
         price={minPriceRolls}
+        handleClick={handleClick}
       />
     );
   });
