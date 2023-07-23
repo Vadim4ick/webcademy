@@ -6,9 +6,16 @@ import { Button } from "@/ui/Button";
 import { Icon } from "@/ui/Icon";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
+import { Modal } from "@/ui/Modal";
+import { useState } from "react";
+import { BasketItem } from "@/components/BasketItem";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => setIsOpen((prev) => !prev);
 
   const onClick = () => {
     navigate("/");
@@ -21,27 +28,50 @@ const Header = () => {
   };
 
   return (
-    <header className={cls.header}>
-      <div className={cls.container}>
-        <div className={cls.content}>
-          <div className={cls.logo}>
-            <Icon Svg={PizzaIcon} clickable onClick={onClick} />
+    <>
+      <header className={cls.header}>
+        <div className={cls.container}>
+          <div className={cls.content}>
+            <div className={cls.logo}>
+              <Icon Svg={PizzaIcon} clickable onClick={onClick} />
 
-            <p>WebcademyDelivery</p>
-          </div>
+              <p>WebcademyDelivery</p>
+            </div>
 
-          <div className={cls.buttons}>
-            <Icon Svg={ToggleIcon} clickable onClick={toggleThemeHandler} />
+            <div className={cls.buttons}>
+              <Icon Svg={ToggleIcon} clickable onClick={toggleThemeHandler} />
 
-            <Button border className={cls.button}>
-              <Icon Svg={CartIcon} />
+              <Button onClick={handleClick} border className={cls.button}>
+                <Icon Svg={CartIcon} />
 
-              <span>0 Р</span>
-            </Button>
+                <span>0 Р</span>
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <Modal
+        variant={"rightModal"}
+        width={420}
+        scroll={"auto"}
+        height={"100%"}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      >
+        <div className={cls.body}>
+          <BasketItem />
+
+          <div className={cls.footer}>
+            <div className={cls.totalPrice}>
+              <span>Итого: 0 Р</span>
+            </div>
+
+            <Button>Оформить заказ</Button>
+          </div>
+        </div>
+      </Modal>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ import { useModalItemParams } from "../../helper/useModalItemParams";
 const ModalItemOthers = (props) => {
   const { isOpen, product, price } = props;
 
-  const newParams = useModalItemParams();
+  const params = useModalItemParams();
 
   const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ const ModalItemOthers = (props) => {
     }
   }, [dispatch, isOpen, product]);
 
-  return <ModalItemLayout price={price} params={newParams} />;
+  return <ModalItemLayout price={price} params={params} />;
 };
 
 export { ModalItemOthers };

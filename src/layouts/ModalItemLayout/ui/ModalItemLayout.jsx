@@ -1,8 +1,21 @@
 import { Button } from "@/ui/Button";
 import cls from "./ModalItemLayout.module.scss";
+import { useDispatch } from "react-redux";
+import { basketActions } from "@/redux/basket/slice/basketSlice";
+import { useContext } from "react";
+import { LayoutContext } from "@/providers/LayoutContextProvider";
 
 const ModalItemLayout = (props) => {
   const { params, price, options } = props;
+
+  const { setIsOpen } = useContext(LayoutContext);
+
+  const dispatch = useDispatch();
+
+  const onClick = () => {
+    dispatch(basketActions.addItem({ ...params, price: price }));
+    setIsOpen(false);
+  };
 
   return (
     <div className={cls.body}>
@@ -16,7 +29,7 @@ const ModalItemLayout = (props) => {
         <div className={cls.footer}>
           <span className={cls.price}>Итого: {price} ₽</span>
 
-          <Button border className={cls.button}>
+          <Button onClick={onClick} border className={cls.button}>
             Добавить
           </Button>
         </div>
