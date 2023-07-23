@@ -9,9 +9,13 @@ import { useTheme } from "@/hooks/useTheme";
 import { Modal } from "@/ui/Modal";
 import { useState } from "react";
 import { BasketItem } from "@/components/BasketItem";
+import { useSelector } from "react-redux";
+import { getBasketTotalPrice } from "@/redux/basket/selectors/basketSelectors";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const totalPrice = useSelector(getBasketTotalPrice);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,7 +48,7 @@ const Header = () => {
               <Button onClick={handleClick} border className={cls.button}>
                 <Icon Svg={CartIcon} />
 
-                <span>0 Р</span>
+                <span>{totalPrice} Р</span>
               </Button>
             </div>
           </div>
@@ -64,7 +68,7 @@ const Header = () => {
 
           <div className={cls.footer}>
             <div className={cls.totalPrice}>
-              <span>Итого: 0 Р</span>
+              <span>Итого: {totalPrice} Р</span>
             </div>
 
             <Button>Оформить заказ</Button>

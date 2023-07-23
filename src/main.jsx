@@ -8,8 +8,9 @@ import { Suspense } from "react";
 import { routerNavigations } from "./const/router";
 import { PageLoader } from "./ui/PageLoader";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import { persistor, store } from "./redux/store";
 import { LayoutContextProvider } from "./providers/LayoutContextProvider";
+import { PersistGate } from "redux-persist/integration/react";
 
 const router = createBrowserRouter([
   {
@@ -24,10 +25,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <ThemeProvider initialTheme={Theme.LIGHT}>
-      <LayoutContextProvider>
-        <RouterProvider router={router} />
-      </LayoutContextProvider>
-    </ThemeProvider>
+    <PersistGate loading={null} persistor={persistor}>
+      <ThemeProvider initialTheme={Theme.LIGHT}>
+        <LayoutContextProvider>
+          <RouterProvider router={router} />
+        </LayoutContextProvider>
+      </ThemeProvider>
+    </PersistGate>
   </Provider>
 );
