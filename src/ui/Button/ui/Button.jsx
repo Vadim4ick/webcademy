@@ -25,3 +25,5 @@ const Button = (props) => {
 };
 
 export { Button };
+
+<Button className={"test"}>Test</Button>;

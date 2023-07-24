@@ -14,7 +14,7 @@ export default defineConfig({
   },
 
   define: {
-    __API__: JSON.stringify("http://localhost:8000"),
+    __API__: JSON.stringify("https://webcademyserver-ayva2013.b4a.run"),
   },
 
   resolve: {
